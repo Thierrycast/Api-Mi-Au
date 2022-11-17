@@ -16,6 +16,6 @@ route.use(authorization);
 route.get("/users", detailUser);
 route.put("/users", updateUser);
 
-route.post("pets", registerPet)
+route.post("/pets", registerPet)
 
 module.exports = route;

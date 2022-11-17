@@ -4,20 +4,18 @@ const { uploadImage, updateImage } = require("../database/supabase");
 const {
    schemaRegisterPet,
    schemaUpdatePet,
-} = require("../validation/schemaUsers");
+} = require("../validation/schemaPets");
 
 
 const registerPet = async (req, res) => {
-   const { nome, raca, genero, data, castrado, bio, foto } = req.body;
+   const { nome, raca, especie, data, castrado, bio, foto } = req.body;
 
    try {
-      res.json('entrou')
-
       await schemaRegisterPet.validate(req.body);
 
       const petDatas = {
          ...req.body,
-         foto: "",
+         foto: ''
       };
 
       const petRegistration = await knex("pets")
